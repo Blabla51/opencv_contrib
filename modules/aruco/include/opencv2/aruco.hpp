@@ -237,8 +237,9 @@ CV_EXPORTS_W void detectMarkers(InputArray image, const Ptr<Dictionary> &diction
  * \f$A = \vecthreethree{f_x}{0}{c_x}{0}{f_y}{c_y}{0}{0}{1}\f$
  * @param distCoeffs vector of distortion coefficients
  * \f$(k_1, k_2, p_1, p_2[, k_3[, k_4, k_5, k_6],[s_1, s_2, s_3, s_4]])\f$ of 4, 5, 8 or 12 elements
- * @param rvecs array of output rotation vectors (@sa Rodrigues) (e.g. std::vector<cv::Vec3d>).
+ * @param rvecs array of output rotation vectors (e.g. std::vector<cv::Vec3d>).
  * Each element in rvecs corresponds to the specific marker in imgPoints.
+ * @sa Rodrigues
  * @param tvecs array of output translation vectors (e.g. std::vector<cv::Vec3d>).
  * Each element in tvecs corresponds to the specific marker in imgPoints.
  * @param _objPoints array of object points of all the marker corners
@@ -247,7 +248,7 @@ CV_EXPORTS_W void detectMarkers(InputArray image, const Ptr<Dictionary> &diction
  * the camera individually. So for each marker, one rotation and translation vector is returned.
  * The returned transformation is the one that transforms points from each marker coordinate system
  * to the camera coordinate system.
- * The marker corrdinate system is centered on the middle of the marker, with the Z axis
+ * The marker coordinate system is centered on the middle of the marker, with the Z axis
  * perpendicular to the marker plane.
  * The coordinates of the four corners of the marker in its own coordinate system are:
  * (-markerLength/2, markerLength/2, 0), (markerLength/2, markerLength/2, 0),
@@ -482,7 +483,8 @@ CV_EXPORTS_W void drawDetectedMarkers(InputOutputArray image, InputArrayOfArrays
  * \f$A = \vecthreethree{f_x}{0}{c_x}{0}{f_y}{c_y}{0}{0}{1}\f$
  * @param distCoeffs vector of distortion coefficients
  * \f$(k_1, k_2, p_1, p_2[, k_3[, k_4, k_5, k_6],[s_1, s_2, s_3, s_4]])\f$ of 4, 5, 8 or 12 elements
- * @param rvec rotation vector of the coordinate system that will be drawn. (@sa Rodrigues).
+ * @param rvec rotation vector of the coordinate system that will be drawn.
+ * @sa Rodrigues
  * @param tvec translation vector of the coordinate system that will be drawn.
  * @param length length of the painted axis in the same unit than tvec (usually in meters)
  *
